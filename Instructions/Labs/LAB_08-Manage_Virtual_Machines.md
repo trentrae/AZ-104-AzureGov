@@ -360,15 +360,18 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
     | Virtual machine scale set name | **az10408vmss0** |
     | Region | select one of the regions that support availability zones and where you can provision Azure virtual machines different from the one you used to deploy virtual machines earlier in this lab |
     | Availability zone | **Zones 1, 2, 3** |
+    | Orchestration mode | **Flexible** |
+    | Security | **Trusted Launch** |  
     | Image | **Windows Server 2019 Datacenter - Gen2** |
-    | Azure Spot instance | **No** |
+    | Azure Spot instance | **Leave Unchecked** |
     | Size | **Standard D2s_v3** |
     | Username | **Student** |
     | Password | **Provide a secure password**  |
-    | Already have a Windows Server license? | **Unchecked** |
+    | Already have a Windows Server license? | **Click to Checked** |
 
     >**Note**: For the list of Azure regions which support deployment of Windows virtual machines to availability zones, refer to [What are Availability Zones in Azure?](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview)
-
+1. On the **Spot** tab all items should be greyed out. Click **Next : Disks >**.
+   
 1. On the **Disks** tab of the **Create a virtual machine scale set** blade, accept the default values and click **Next : Networking >**.
 
 1. On the **Networking** tab of the **Create a virtual machine scale set** blade, click the **Create virtual network** link below the **Virtual network** textbox and create a new virtual network with the following settings (leave others with their default values):
@@ -407,15 +410,26 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
 
 1. Click **Add** and, back on the **Create network security group** blade, click **OK**.
 
-1. Back on the **Edit network interface** blade, in the **Public IP address** section, click **Enabled** and click **OK**.
+1. Back on the **Edit network interface** blade, in the **Public IP address** section, click **Enabled** and click **OK**. Leave **Accelerated Networking** set as **Enabled**.
 
-1. Back on the **Networking** tab of the **Create a virtual machine scale set** blade, under the **Load balancing** section, ensure that the **Use a load balancer** entry is selected and specify the following **Load balancing settings** (leave others with their default values) and click **Next : Scaling >**:
+1. Back on the **Networking** tab of the **Create a virtual machine scale set** blade, under the **Load balancing** section, Create a new load balancer under the **Select a load balancer** and specify the following **Load balancing settings**
+   
+1. In the Fly Out Window configure with the following:
 
+    
     | Setting | Value |
     | --- | --- |
-    | Load balancing options | **Azure load balancer** |
-    | Select a load balancer | **(new) az10408vmss0-lb** |
-    | Select a backend pool | **(new) bepool** |
+    | Name | lb-az10408vmss0 |
+    | Type | **Public** |
+    | Protocol | **TCP** |
+    | Rules | **Load balancer rule** & **Inbound NAT Rule** should **Checked** |
+    | Port | **80** |
+    | Backend Port | **80** |
+    | Frontend Port Range | **50000** |
+    | Backend Port | **3389** |
+   
+1. Click on **Create**. Then click **Next : Scaling >**:
+
 
 1. On the **Scaling** tab of the **Create a virtual machine scale set** blade, specify the following settings (leave others with their default values) and click **Next : Management >**:
 
@@ -423,6 +437,7 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
     | --- | --- |
     | Initial instance count | **2** |
     | Scaling policy | **Manual** |
+    | Scale-in policy | **Default** |
 
 1. On the **Management** tab of the **Create a virtual machine scale set** blade, specify the following settings (leave others with their default values):
 
@@ -441,9 +456,9 @@ In this task, you will deploy Azure virtual machine scale set across availabilit
 
     | Setting | Value |
     | --- | --- |
-    | Spreading algorithm | **Fixed spreading (not recommended with zones)** |
+    | Spreading algorithm | **Max spreading** |
 
-    >**Note**: The **Max spreading** setting is currently not functional.
+    >**Note**: The **Fixed spreading (not recommended with zones)** setting will cause the deployment to fail.
 
 1. On the **Review + create** tab of the **Create a virtual machine scale set** blade, ensure that the validation passed and click **Create**.
 
