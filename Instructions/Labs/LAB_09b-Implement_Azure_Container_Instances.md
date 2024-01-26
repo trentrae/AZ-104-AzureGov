@@ -83,7 +83,7 @@ In this task, you will review the deployment of the container instance.
 
 > **Note**:  You can safely ignore the NetworkWatcherRG as you only have read permissions if using an instructor-provided account. That RG is needed for lab 06.
 
-2. Select your first resource group _[ex: rg1-az104-student01]_
+2. Select your first resource group _[ex: az104student10RG1]_
 3. Select each resource, except your **Cloud Shell storage account**, by checking the box to the left of each resource name.
 4. Click **Delete** in the top-right portion of the Azure Portal within the resource group pane.
 5. Confirm delete by typing **yes** and selecting **Delete**.
