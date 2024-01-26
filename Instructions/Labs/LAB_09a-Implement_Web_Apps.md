@@ -44,9 +44,9 @@ In this task, you will create an Azure web app.
     | Resource group | the name of your existing resource group _ex. az104student10RG1_ |
     | Web app name | any globally unique name |
     | Publish | **Code** |
-    | Runtime stack | **PHP 8.0** |
+    | Runtime stack | **PHP 8.2** |
     | Operating system | **Linux** |
-    | Region | USGov Virginia |
+    | Region | **USGov Virginia** |
     | App service plan | accept the default configuration |
 
 1. Click **Review + create**. On the **Review + create** tab of the **Create Web App** blade, ensure that the validation passed and click **Create**.
