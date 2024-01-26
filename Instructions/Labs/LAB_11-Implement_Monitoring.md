@@ -52,7 +52,7 @@ In this task, you will deploy a virtual machine that will be used to test monito
     
    ```powershell
    #ensure the following value for $rgName matches the resource group in your enviornment
-   $rgName = 'rg1-az104-student01'
+   $rgName = YourResourceGroupName ex. az104student10RG1
     ```
 
 1. From the Cloud Shell pane, run the following to create the first virtual network and deploy a virtual machine into it by using the template and parameter files you uploaded:
@@ -92,7 +92,7 @@ In this task, you will create and configure an Azure Log Analytics workspace and
     | Settings | Value |
     | --- | --- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of your existing resource group **rg1-az104-student01** |
+    | Resource group | the name of your existing resource group **_ex. az104student10RG1** |
     | Log Analytics Workspace | any unique name _[ex: loganalyticsaz104student01bkf]_ |
     | Region | **USGov Virginia** |
 
@@ -153,7 +153,7 @@ In this task, you will configure Azure virtual machine diagnostic settings.
 
 1. On the **az104-11-vm0** blade, in the **Monitoring** section, click **Diagnostic settings**.
 
-1. On the **Overview** tab of the **az104-11-vm0 \| Diagnostic settings** blade, click **Enable guest-level monitoring**.
+1. On the **Install Diagnostics Extensions** window, select your **Storage Account**, then click **Enable guest-level monitoring**.
 
     >**Note**: Wait for the operation to take effect. This might take about 3 minutes.
 
@@ -189,7 +189,7 @@ In this task, you will configure Azure virtual machine diagnostic settings.
 
 1. In the Azure portal, search for and select **Monitor** and, on the **Monitor \| Overview** blade, click **Metrics**.
 
-1. On the **Select a scope** blade, on the **Browse** tab, navigate to the **az104-11-rg0** resource group, expand it, select the checkbox next to the **az104-11-vm0** virtual machine entry within that resource group, and click **Apply**.
+1. On the **Select a scope** blade, on the **Browse** tab, navigate to the **_ex. az104student10RG1_** resource group, expand it, select the checkbox next to the **az104-11-vm0** virtual machine entry within that resource group, and click **Apply**.
 
     >**Note**: This gives you the same view and options as those available from the **az104-11-vm0 - Metrics** blade.
 
