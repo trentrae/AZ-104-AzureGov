@@ -37,7 +37,7 @@ In this task, you will create a new container instance for the web application.
     | Setting | Value |
     | ---- | ---- |
     | Subscription | the name of the Azure subscription you are using in this lab |
-    | Resource group | the name of your existing resource group **rg1-az104-student01** |
+    | Resource group | the name of your existing resource group _ex. az104student10RG1_ |
     | Container name | **az104-9b-c1** |
     | Region | USGov Virginia |
     | Image Source | **Quickstart images** |
